@@ -7,8 +7,8 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "My super secret key" 
 
 debug = DebugToolbarExtension(app)
-story_list = []
-
+story_list = [] # I know using globals isn't best practice, but I'm not sure how else to have
+                # the story object persist through multiple views
 @app.route("/")
 def home_page():
     '''Displays the home page'''
@@ -23,14 +23,15 @@ def add_prompt_form():
         story = Story(prompts_list, story_string)
     else:
         story = example_story
+    story_list.append(story)
     
     return render_template("form.html", story=story)
 
 @app.route("/story")
 def submit_prompts():
     '''Displays finished story'''
-    text = example_story.generate(request.args)
-    #text = story.
+    story = story_list.pop()
+    text = story.generate(request.args)
     return render_template("story.html", story=text)
 
 # @app.route("/story/<story_obj>")

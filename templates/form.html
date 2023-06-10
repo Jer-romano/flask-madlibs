@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Madlibs Generator</h1>
+    <form id="prompt-form" action="/story">
+        {%for prompt in story.prompts%}
+        <span>
+            <label for={{prompt}}>Enter a {{prompt}}:</label>
+            <input type="text" name={{prompt}}>
+        </span>
+        {%endfor%}
+       <button>Create Story</button>
+    </form>
+</body>
+</html>

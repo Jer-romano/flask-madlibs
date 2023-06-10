@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Madlibs Generator</h1>
+    <form id="story-form" action="/form">
+       <div id="story-input-div">
+            <label for="story_input">Enter story string (This isn't working): </label>
+            <input type="text" placeholder="i.e. 'I love to {verb} a good {noun}.'" name="story_input">
+        </div>
+        <p>Note: Make sure every prompt identifier is unique and surrounded with "{}"</p>
+        <h3>OR</h3>
+        <span>
+            <label for="preset-story"> Use a story template</label>
+            <input type="checkbox" name="preset-story">
+        </span> 
+       <button>Submit</button>
+    </form>
+</body>
+</html>

@@ -10,7 +10,7 @@ debug = DebugToolbarExtension(app)
 
 @app.route("/")
 def home_page():
-    '''Displays the home page'''
+    '''Displays the home page, where user decides what type of story they'd like to use'''
     return render_template("home.html")
 
 @app.route("/form")
@@ -26,7 +26,6 @@ def add_prompt_form():
         return render_template("home.html")
 
     session["story"] = story.__dict__  #__dict__ method converts Story object to JSON
-    
     return render_template("form.html", story=story)
 
 @app.route("/story")
@@ -36,7 +35,4 @@ def submit_prompts():
     text = story.generate(request.args)
     return render_template("story.html", story=text)
 
-# @app.route("/story/<story_obj>")
-# def show_story(story_obj):
-#     s = story_list[0]
-#     return render_template("story.html", story=s)
+

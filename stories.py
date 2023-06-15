@@ -33,6 +33,9 @@ class Story:
             text = text.replace("{" + key + "}", val)
 
         return text
+    
+    def serialize(self):
+        return {"prompts": self.prompts, "template": self.template}
 
 
 # Here's a story to get you started
